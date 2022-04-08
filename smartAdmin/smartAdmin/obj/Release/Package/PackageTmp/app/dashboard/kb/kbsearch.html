@@ -1,0 +1,30 @@
+﻿<div id="wid-2" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" ng-controller="kbsearchControl"  class="div-h100vh-mb3per increasingwidget">
+    <header>
+        <span class="widget-icon"><i class="fa fa-search"></i></span>
+        <h2>KB Search</h2>
+        <div class="widget-toolbar">
+            <div class="btn-group" data-toggle="buttons">
+                <a href="javascript:void(0);" ng-model="refreshkb" rel="tooltip" title="" data-placement="bottom" data-original-title="Refresh" ng-click="loadkbsearch()"><i class="fa fa-refresh"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- widget div-->
+    <div  class="p-0-5-0">
+
+        <div class="widget-body no-padding scrollbar" id="style-1" style="max-height: 255px !important; overflow: auto !important">
+            <span class="data">{{widget}}</span>
+            <!-- content goes here -->
+            <div class="well well-glass">
+                <div class="input-group">
+                    <input class="form-control" type="text" ng-model="searchtext" required placeholder="Search..." ng-keypress="handleKeypress($event)">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default btn-primary" ng-click="fnsearchkb()" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

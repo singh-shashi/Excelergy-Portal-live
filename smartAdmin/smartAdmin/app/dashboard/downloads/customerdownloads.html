@@ -1,0 +1,31 @@
+﻿<div id="wid-1" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" ng-controller="custdownControl"  class="div-h100vh-mb3per increasingwidget">
+    <header>
+        <span class="widget-icon"><i class="fa fa-download"></i></span>
+        <h2>Customer Downloads</h2>
+        <div class="widget-toolbar">
+            <div class="btn-group" data-toggle="buttons">
+                <a href="javascript:void(0);" ng-model="refreshcustd" rel="tooltip" title="" data-placement="bottom" data-original-title="Refresh" ng-click="loadcustdownload('R')"><i class="fa fa-refresh"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- widget div-->
+    <div  class="p-0-5-0">
+       
+        <div class="widget-body no-padding scrollbar" id="style-1" style="max-height: 270px !important; overflow: auto !important">
+            <span class="data">{{widget}}</span>
+            <div class="list-group">
+                <div class="list-group-item clearfix d-flex" ng-repeat="custdwnElement in custdwn">
+                    <a class="flex-fill padding1percent downloadText" href="{{custdwnElement.downloadLink}}">
+                        <span title="{{custdwnElement.DOCNAME}}" class="flex-fill padding1percent">{{custdwnElement.DOCNAME}}</span>
+                    </a>
+                    <span class="pull-right">
+                        <a class="btn btn-xs btn-default" href="{{custdwnElement.downloadLink}}" download="{{custdwnElement.DOCNAME}}">
+                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

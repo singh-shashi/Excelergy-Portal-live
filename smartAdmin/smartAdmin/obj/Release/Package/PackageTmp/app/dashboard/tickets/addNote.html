@@ -1,0 +1,49 @@
+﻿<div class="row" style="width: 725px;  background-color: #fff;">
+    <article class="col-sm-18 col-lg-12">
+        <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+            <!-- widget content -->
+            <div class="widget-body smart-form" style="border-bottom: 0px;">
+                <header>
+                    <h2>Add Note</h2>
+                </header>
+                <fieldset class="add_ticketdetails">
+                    <div class="row" style="display:none">
+                        <section class="col col-lg-6">
+                            <label class="label">Subject</label>
+                            <label class="input" id="labelSubject">
+                                <i class="icon-append fa fa-globe"></i>
+                                <input type="text" ng-model="noteSubject" >
+                            </label>
+                        </section>
+                    </div>
+
+                    <div class="row">
+                        <section class="col col-lg-6">
+                            <label class="label">Details</label>
+                            <label class="textarea" id="labelDetails">
+                                <i class="icon-append fa fa-tag"></i>
+                                <textarea ng-model="noteDetails" placeholder="Details"  style="width:100% !important;min-height:65px!important;" cols="30">
+                           </textarea>
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+
+                <footer>
+                    <button type="button" class="btn btn-labeled btn-success" ng-click="fnSaveNote()" ng-disabled="submitting">
+                        <span class="btn-label ">
+                            <i class="fa fa-save"></i>
+                        </span>Save
+                    </button>
+                    <button type="button" class="btn btn-labeled btn-success" ng-click="addNoteOk()">
+                        <span class="btn-label ">
+                            <i class="fa fa-close"></i>
+                        </span>
+                        Cancel
+                    </button>
+                </footer>
+            </div>
+        </div>
+    </article>
+
+</div>

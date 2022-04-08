@@ -1,0 +1,204 @@
+<header id="header" ng-controller="headrCtrl">
+    <div id="logo-group">
+
+        <!-- PLACE YOUR LOGO HERE -->
+        <div smart-include="app/shared/logo.html" class="whitelogo"></div>
+        <!-- END LOGO PLACEHOLDER -->
+        <!-- Note: The activity badge color changes when clicked and resets the number to 0
+        Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+        <span id="activity" style="display: none!important" class="activity-dropdown" activities-dropdown-toggle>
+            <i class="fa fa-user"></i>
+            <b class="badge bg-color-red">21</b>
+        </span>
+        <div smart-include="app/dashboard/activities/activities.html"></div>
+    </div>
+
+
+    <recent-projects></recent-projects>
+
+
+
+    <!-- pulled right: nav area -->
+    <div class="pull-right">
+
+      
+
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a toggle-menu title="Collapse Menu">
+                    <i class="fa fa-reorder"></i>
+                </a>
+            </span>
+        </div>
+        <!-- end collapse menu -->
+        <!-- #MOBILE -->
+        <!-- Top menu profile link : this shows only when top menu is active -->
+        <ul  class="header-dropdown-list padding-5">
+            <li class="userPf">
+                <a href="#" class="activity-dropdown txt-color-white" data-toggle="dropdown" activities-dropdown-toggle>
+                    <i class="fa fa-user" style="font-size: 25px !important; position:relative; top:6px;"></i>
+                    <span id="mobile-profile-img"> &nbsp;{{loggedinuser}}</span>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li class="paddingtopbottom0point6 " id="search-mobile" style="border-bottom: 1px dotted #aacc8d;">
+                        <a href="javascript:void(0)">
+                           Hello,&nbsp;
+                            <strong>{{loggedinuser}}</strong>
+                        </a>
+                    </li>
+                    <li class="paddingtopbottom0point6">
+                        <a ui-sref="app.appViews.profileDemo"$scope.TicketQryDetails[i].>
+                            <i class="fa fa-user w-10 font1point5"></i>
+                            <strong>Profile</strong>
+                        </a>
+                    </li>
+                    <li class="paddingtopbottom0point6">
+                        <!-- ui-sref="app.appViews.changePassword"$scope.TicketQryDetails[i].-->
+                        <a  ng-click="OpenChangePwd()">
+                            <i class="fa fa-edit w-10 font1point5"></i>
+                            <strong>Change Password</strong>
+                        </a>
+                    </li>
+                    <!--<li class="paddingtopbottom0point6" ng-click="SendPasswordMail()">
+                        <a href="javascript:void(0)"$scope.TicketQryDetails[i].>
+                            <i class="fa fa-envelope w-10 font1point5"></i>
+                            <strong>Send Password to Mail</strong>
+                        </a>
+                    </li>-->
+                    <li class="paddingtopbottom0point6">
+                        <a href="#/login" data-action="userLogout">
+                            <i class="fa fa-sign-out w-10 font1point5"></i>
+                            <strong>Logout</strong>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- logout button -->
+        <!--<div id="logout" class="btn-header transparent pull-right">
+            <span>
+                <a ui-sref="login" title="Sign Out" data-action="userLogout"
+                   data-logout-msg="You can improve your security further after logging out by closing this opened browser">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+        </div>-->
+        <!-- end logout button -->
+        <!-- search mobile button (this is hidden till mobile view port) -->
+        <!--<div id="search-mobile" class="btn-header transparent pull-right" data-search-mobile>
+            <span>
+            <a href="#" title="Search"><i class="fa fa-search"></i></a>
+             
+            </span>
+        </div>-->
+        <!--<div id="search-mobile" class="btn-header transparent pull-right">
+            <span>
+               
+                <a href="#/login" data-action="userLogout"  title="logout">
+                    <i class="fa fa-sign-out w-10" style="font-size:2.5rem !important;padding-top:5px"></i>
+                </a>
+            </span>
+        </div>-->
+        <!-- end search mobile button -->
+
+        <!--Reset Widget-->
+        <div  id="fullscreen" class="btn-header transparent pull-right userPf">
+
+            <span ng-click="resetWidgets()">
+                <!--<a href="#" title="Search"><i class="fa fa-search"></i></a>-->
+                <a href="javascript:void(0);" ng-model="refreshTicket" title="Reset Widget"
+                  class="ng-pristine ng-valid ng-touched"  style="margin-top:10px"><i class="fa fa-refresh"></i></a>
+                    <!--<i class="fa fa-refresh w-10"  
+                       style="font-size:2rem !important;padding-top:20px;padding-bottom:20px;color: white;"></i>-->
+            </span>
+        </div>
+        <div id="search-mobile" class="btn-header transparent pull-right">
+            <span ng-click="resetWidgets()"  title="Reset Widget">
+                
+                <i class="fa fa-refresh w-10"
+                   style="font-size:2rem !important;padding-top:21px;padding-bottom:15px;color: white;float: right;"></i>
+            </span>
+        </div>
+        <!--<div class="btn-header transparent pull-right">
+            <button class="btn btn-success" ng-click="resetWidgets()"><i class="fa fa-refresh"></i></button>
+        </div>-->
+            <!-- end Reset Widget -->
+
+            <!-- input: search field -->
+            <!--<form action="#/search" class="header-search pull-right">
+            <input id="search-fld" type="text" name="param" style="display: none !important" placeholder="Find reports and more" data-autocomplete='[
+                    "ActionScript",
+                    "AppleScript",
+                    "Asp",
+                    "BASIC",
+                    "C",
+                    "C++",
+                    "Clojure",
+                    "COBOL",
+                    "ColdFusion",
+                    "Erlang",
+                    "Fortran",
+                    "Groovy",
+                    "Haskell",
+                    "Java",
+                    "JavaScript",
+                    "Lisp",
+                    "Perl",
+                    "PHP",
+                    "Python",
+                    "Ruby",
+                    "Scala",
+                    "Scheme"]'>
+            <button type="submit" style="display: none !important">
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="$" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+        </form>-->
+            <!-- end input: search field -->
+            <!-- fullscreen button -->
+            <div id="fullscreen" class="btn-header transparent pull-right">
+                <span>
+                    <a full-screen title="Full Screen">
+                        <i class="fa fa-arrows-alt"></i>
+                    </a>
+                </span>
+            </div>
+            <!-- end fullscreen button -->
+            <!-- #Voice Command: Start Speech -->
+            <div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs" style="display: none !important">
+                <div>
+                    <a title="Voice Command" id="voice-command-btn" speech-recognition><i class="fa fa-microphone"></i></a>
+
+                    <div class="popover bottom">
+                        <div class="arrow"></div>
+                        <div class="popover-content">
+                            <h4 class="vc-title">
+                                Voice command activated
+                                <br>
+                                <small>Please speak clearly into the mic</small>
+                            </h4>
+                            <h4 class="vc-title-error text-center">
+                                <i class="fa fa-microphone-slash"></i>Voice command failed
+                                <br>
+                                <small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
+                                <br>
+                                <small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
+                            </h4>
+                            <a href-void class="btn btn-success" id="speech-help-btn">See Commands</a>
+                            <a href-void class="btn bg-color-purple txt-color-white"
+                               onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end voice command -->
+            <!-- multiple lang dropdown : find all flags in the flags page -->
+            <language-selector></language-selector>
+            <!-- end multiple lang -->
+
+        </div>
+    <!-- end pulled right: nav area -->
+
+</header>

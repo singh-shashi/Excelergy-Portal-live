@@ -1,0 +1,62 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <section id="graphicalWidgets" ng-show="SFReports.length > 0">
+        <div class="row">
+            <article class="col-sm-18 col-lg-12">
+                <div id="graphicalWidget" data-jarvis-widget data-widget-sortable="false" data-widget-colorbutton="true" data-widget-editbutton="true" data-widget-fullscreenbutton="true" data-widget-deletebutton="false" ng-class="toggleval== true? 'jarviswidget jarviswidget-collapsed' : 'jarviswidget'">
+                    <!-- <div id="graphicalWidget"  data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" class="">-->
+
+                    <header>
+                        <span class="widget-icon"><i class="fa fa-area-chart"></i></span>
+                        <h2>Reports</h2>
+                        <ul class="nav nav-tabs pull-right in" id="myTab">
+                            <li ng-class="$index == 0 ? 'active' : ''" ng-repeat="report in SFReports">
+                                <a data-toggle="tab" id="{{$index}}" href="#s{{$index}}" aria-expanded="true" ng-click="tabchange($event)" ng-switch="report.RptSubType">
+                                    <i ng-switch-when="Line Graph" class="fa fa-line-chart"></i>
+                                    <i ng-switch-when="2D Pie Graph" class="fa fa-pie-chart"></i>
+                                    <i ng-switch-default class="fa fa-bar-chart"></i>
+                                    &nbsp;<span class="hidden-mobile hidden-tablet">{{report.Title}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </header>
+                    <div ng-hide="toggleval== true">
+                        <div class="widget-body no-padding" style="height: 330px !important; overflow-x: hidden; overflow-y: auto !important">
+                            <div id="myTabContent" class="tab-content">
+
+                                <div ng-class="$index == 0 ? 'tab-pane fade padding-10 no-padding-bottom active in' : 'tab-pane fade padding-10 no-padding-bottom'" id="s{{$index}}" ng-repeat="report in SFReports" on-finish-render="ngRepeatFinishedReports">
+                                    <div class="graphicalwidget chart" reportid="{{report.ReportID}}" reportsubtype="{{report.RptSubType}}" style="height: 280px; width: 800px; padding: 10px;"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section id="widget-grid">
+
+        <div class="row">
+            <article ng-class="SFWidgets.length == 1 ?  'col-sm-18 col-lg-12' : ($index == 0 || $index == 2) ? 'col-sm-4 col-lg-3' : SFWidgets.length == 2 ? 'col-sm-9 col-lg-9' : 'col-sm-10 col-lg-6'" ng-repeat="widgetcolumn in SFWidgets" on-finish-render="ngRepeatFinished">
+                <div ng-repeat="widget in widgetcolumn">
+                    <div ng-switch="widget.type.toLowerCase()">
+                        <div ng-switch-when="document" smart-include="app/dashboard/documents/mydocuments.html"></div>
+                        <div ng-switch-when="news" smart-include="app/dashboard/news/news.html"></div>
+                        <div ng-switch-when="mytickets" smart-include="app/dashboard/tickets/mytickets.html"></div>
+                        <div ng-switch-when="solditems" smart-include="app/dashboard/solditems/solditems.html"></div>
+                        <div ng-switch-when="links" smart-include="app/dashboard/links/quicklinks.html"></div>
+                        <div ng-switch-when="kb" smart-include="app/dashboard/kb/kbsearch.html"></div>
+                        <div ng-switch-when="downloads" smart-include="app/dashboard/downloads/customerdownloads.html"></div>
+                        <div ng-switch-when="myContacts" smart-include="app/dashboard/Contacts/myContacts.html"></div>
+                        <div ng-switch-when="myAccount" smart-include="app/dashboard/Accounts/myaccounts.html"></div>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- end widget grid -->
+</div>
+<!-- END MAIN CONTENT -->

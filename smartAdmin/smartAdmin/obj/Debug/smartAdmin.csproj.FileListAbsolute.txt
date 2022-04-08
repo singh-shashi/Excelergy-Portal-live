@@ -1,0 +1,33 @@
+C:\Puja\Excellergy\smartAdmin\bin\smartAdmin.dll.config
+C:\Puja\Excellergy\smartAdmin\bin\smartAdmin.dll
+C:\Puja\Excellergy\smartAdmin\bin\smartAdmin.pdb
+C:\Puja\Excellergy\smartAdmin\obj\Debug\smartAdmin.csprojResolveAssemblyReference.cache
+C:\Puja\Excellergy\smartAdmin\obj\Debug\smartAdmin.dll
+C:\Puja\Excellergy\smartAdmin\obj\Debug\smartAdmin.pdb
+E:\Puja\Excellergy\smartAdmin\obj\Debug\smartAdmin.csprojResolveAssemblyReference.cache
+E:\Puja\Excellergy\smartAdmin\obj\Debug\smartAdmin.dll
+E:\Puja\Excellergy\smartAdmin\obj\Debug\smartAdmin.pdb
+E:\Puja\Excellergy\smartAdmin\bin\smartAdmin.dll.config
+E:\Puja\Excellergy\smartAdmin\bin\smartAdmin.dll
+E:\Puja\Excellergy\smartAdmin\bin\smartAdmin.pdb
+D:\Excelergy_Project\smartAdmin\bin\smartAdmin.dll.config
+D:\Excelergy_Project\smartAdmin\bin\smartAdmin.dll
+D:\Excelergy_Project\smartAdmin\bin\smartAdmin.pdb
+D:\Excelergy_Project\smartAdmin\obj\Debug\smartAdmin.csprojAssemblyReference.cache
+D:\Excelergy_Project\smartAdmin\obj\Debug\smartAdmin.csproj.CoreCompileInputs.cache
+D:\Excelergy_Project\smartAdmin\obj\Debug\smartAdmin.dll
+D:\Excelergy_Project\smartAdmin\obj\Debug\smartAdmin.pdb
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.dll.config
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.dll
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.pdb
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.csprojAssemblyReference.cache
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.csproj.CoreCompileInputs.cache
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.dll
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.pdb
+D:\Git Projects\OldMachineApp\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.dll.config
+D:\Git Projects\OldMachineApp\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.dll
+D:\Git Projects\OldMachineApp\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.pdb
+D:\Git Projects\OldMachineApp\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.csprojAssemblyReference.cache
+D:\Git Projects\OldMachineApp\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.csproj.CoreCompileInputs.cache
+D:\Git Projects\OldMachineApp\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.dll
+D:\Git Projects\OldMachineApp\Nexant-Portal\smartAdmin\smartAdmin\obj\Debug\smartAdmin.pdb

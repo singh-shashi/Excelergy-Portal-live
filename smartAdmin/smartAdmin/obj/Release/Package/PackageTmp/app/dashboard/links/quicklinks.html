@@ -1,0 +1,23 @@
+﻿<div id="wid-3" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" ng-controller="linkControl">
+    <header>
+        <span class="widget-icon"><i class="fa fa-external-link"></i></span>
+        <h2>Quick Links</h2>
+    </header>
+
+    <div>
+        <div class="widget-body no-padding scrollbar" id="style-1" style="max-height: 300px !important; overflow: auto !important">
+            <span class="data">{{widget}}</span>
+            <div class="list-group">
+                <div ng-repeat="linkElement in links" class="list-group-item clearfix d-flex">
+                    <span class="flex-fill">{{linkElement.DisText}}</span>
+                    <span class="pull-right">
+                        <a class="btn btn-xs btn-default" href="{{linkElement.URLText}}" target="_blank">
+                            <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                        </a>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,632 @@
+﻿<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg" style="z-index:9999;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>
+                    Record Detail for Ticket# : {{TicketQryDetails1.TicketID}}
+                    <i id="Cancelheader" class="fa fa-times" aria-hidden="true" data-dismiss="modal"
+                       style="color: #888888;cursor:pointer;float: right;padding-left:5px" title="Cancel"></i>
+                    <i id="Detailheader" class="fa fa-print" aria-hidden="true" ng-click="fnPrintDetailsdataForOne(TicketQryDetails1)"
+                       style="color: #888888;cursor:pointer;float: right;" title="Print"></i>
+
+                </h5>
+
+            </div>
+            <div class="modal-body padding-5">
+                <div class="smart-form client-form">
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-lg-4">
+                                <label class="label">Ticket ID</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.TicketID}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Build/Kit #</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Build}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Sub Functional Area</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Subfunct}}" readonly>
+                                </label>
+                            </section>
+
+
+
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-4">
+                                <label class="label">Status</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Status}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Environment</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.envrnmt}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Others to be Notified</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Addusers}}" readonly>
+                                </label>
+                            </section>
+
+
+
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-4">
+                                <label class="label">Type</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Category}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Priority</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Priority}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Creator</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.EndUser}}" readonly>
+                                </label>
+                            </section>
+
+
+
+                        </div>
+                        <div class="row">
+
+                            <section class="col col-lg-4">
+                                <label class="label">Product</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Product}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">DB Platform</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.DBPlat}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Ticket Reported</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.CallTime | date:'dd MMM yyyy  hh:mm:ss'}}" readonly>
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+
+                            <section class="col col-lg-4">
+                                <label class="label">Kit</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Kittype}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Operating System</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Opsystem}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Ticket Closed</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Closedat | date:'dd MMM yyyy  hh:mm:ss'}}" readonly>
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-4">
+                                <label class="label">Juris/Trans/Region</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Jurisdic}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Functional Area</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Funcarea}}" readonly>
+                                </label>
+                            </section>
+                            <section class="col col-lg-4">
+                                <label class="label">Resolution</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.Resoluti}}" readonly>
+                                </label>
+                            </section>
+
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-4">
+                                <label class="label">Client Defined Field</label>
+                                <label class="input">
+                                    <input type="text" value="{{TicketQryDetails1.UserUDF}}" readonly>
+                                </label>
+                            </section>
+
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-12">
+                                <label class="label">Synopsis</label>
+                                <label class="textarea">
+                                    <textarea rows="4" style="padding-left:5px" readonly>{{TicketQryDetails1.Synopsis}}</textarea>
+                                </label>
+                            </section>
+
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-12">
+                                <label class="label">Problem Description</label>
+                                <label class="textarea">
+                                    <textarea rows="4" style="padding-left:5px" readonly>{{TicketQryDetails1.Detail}}</textarea>
+                                </label>
+                            </section>
+
+                        </div>
+                        <br />
+                        <div class="row" ng-hide="TicketQryDetails1.notes.length <= 0">
+                            <div class="col-lg-12">
+                                <table class="table table-bordered tab">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:70%;">Existing Comments</th>
+                                            <th style="width:30%;">&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="note1 in TicketQryDetails1.notes">
+                                            <td>
+                                                <p ng-bind-html="note1.NoteText  | toTrusted"></p>
+                                            </td>
+                                            <td>
+                                                <div class="col-md-4">
+                                                    <strong>Date</strong>
+                                                    <br />
+                                                    {{note1.NoteDate | date:'MMM dd yyyy'}}
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <strong>Time</strong>
+                                                    <br />
+                                                    {{note1.NoteDate.split('T')[1]}}
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <strong>User</strong>
+                                                    <br />
+                                                    {{note1.Author}}
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myExportModal" role="dialog">
+    <div class="modal-dialog" style="z-index:9999;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>
+                    Export to Excel
+                    <i id="Cancelheader" class="fa fa-times" aria-hidden="true" data-dismiss="modal"
+                       style="color: #888888;cursor:pointer;float: right;padding-left:5px" title="Cancel"></i>                  
+
+                </h5>
+
+            </div>
+            <div class="modal-body padding-5">
+                <div style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: transparent;z-index: 99999;" ng-show="parloading">
+                    <i class="fa fa-spinner fa-4x fa-spin" style="margin-left: 41%; margin-top: 22%;"></i>
+                </div>
+                <div class="smart-form client-form">
+                    <fieldset class="add_ticketdetails add_details" style="height: 100px; text-align: center; vertical-align: middle; margin-top: 35px;">
+                        <section>
+                            <label for="myFileField" style="font-size:13px">Export </label>
+                            <select ng-model="TPageSizeddd" ng-options="data.val as data.text for data in PageSizearray">
+                                <option value="2"> 2nd </option>
+                                <!--<option ng-options style="font-size:13px" ng-repeat="data in PageSizearray" value="{{data.val}}" ng-if="!data.val.contains('undefined')">{{data.text}}</option>-->
+                            </select>
+                            <label for="myFileField" style="font-size:13px"> {{NoExportRec}} records to Excel</label>
+                        </section>
+                        <footer class="addattachment_footer">
+
+                            <button type="button" class="btnExport btn-labeled btn-success" ng-click="fnExportToExcel()">
+                                <!---->
+                                <span class="btn-label">
+                                    <i class="fa fa-file-excel-o"></i>
+                                </span>Ok
+                            </button>
+                            <button type="button" class="btnExport btn-labeled btn-success" ng-click="fnCloseExportModal()">
+                                <!---->
+                                <span class="btn-label">
+                                    <i class="fa fa-close"></i>
+                                </span>Cancel
+                            </button>
+                        </footer>
+                    </fieldset>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="wid-0" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" class="div-mt-13">
+    <!--<div style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: transparent;z-index: 9999;" ng-show="loadingTicketQry">
+        <i class="fa fa-spinner fa-4x fa-spin" style="margin-left: 46%; margin-top: 19%;"></i>
+    </div>-->
+    <header>
+        <span class="widget-icon"><i class="fa fa-ticket"></i></span>
+        <h2>Ticket Query</h2>
+
+        <span id="spanTicketTotalofRec1" style="float: right; color: #14b947; font-size: 12px; font-weight: 600; margin-right: 14px; margin-top: -4px; "></span>
+    </header>
+    <div>
+        <div class="row">
+            <article class="col-sm-18 col-lg-12">
+                <div class="widget-body no-border padding-5" style="border-bottom: 0px;">
+                    <div id="divQuerySetup" ng-hide="ShowForm">
+                        <!--class="d-flex"-->
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <div class="form-group col-md-12">
+                                    <label>From Date</label>
+                                    <input type="text" name="request" ng-model="Fdata" placeholder="Select From Date" class="form-control datepicker" data-dateformat='dd/mm/yy' readonly>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>To Date</label>
+                                    <input type="text" name="request" placeholder="Select To Date" ng-model="Tdata" class="form-control datepicker" data-dateformat='dd/mm/yy' readonly>
+                                </div>
+                                <div class="form-group  col-md-12">
+                                    <label>Status</label>
+                                    <select name="txtStatus" ng-model="qSataus" style="height:225px;overflow:hidden" multiple=""
+                                            id="style-1" class="form-control">
+                                        <option value="Assigned">Assigned</option>
+                                        <option value="Awaiting Engineering">Awaiting Engineering</option>
+                                        <option value="Awaiting Release">Awaiting Release</option>
+                                        <option value="Closed">Closed</option>
+                                        <option value="Escalated">Escalated</option>
+                                        <option value="Potential Defect">Potential Defect</option>
+                                        <option value="Potential Enhancement">Potential Enhancement</option>
+                                        <option value="Reopen">Reopen</option>
+                                        <option value="Reported">Reported</option>
+                                        <option value="Request Info">Request Info</option>
+                                        <option value="Researching">Researching</option>
+                                        <option value="Resolved">Resolved</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="button" class="btn btn-labeled btn-success" ng-click="ShowRecords('D','R')">
+                                        <span class="btn-label ">
+                                            <i class="fa fa-list-alt"></i>
+                                        </span>Details
+                                    </button>
+                                    <button type="button" class="btn btn-labeled btn-success" ng-click="ShowRecords('S','R')">
+                                        <span class="btn-label ">
+                                            <i class="fa fa-list"></i>
+                                        </span>Summary
+                                    </button>
+
+                                    <button type="button" class="btn btn-labeled btn-success" ng-click="clearText()">
+                                        <span class="btn-label ">
+                                            <i class="fa fa-refresh"></i>
+                                        </span>Clear
+                                    </button>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+
+                    </div>
+
+                    <div id="divQueryDetailsResult" ng-hide="mode=='' " ng-show="ShowForm">
+                        <div>
+
+                            <div class="card">
+                                <div class="card-header d-flex">
+                                    <div class="flex-fill" style="padding-left:0px">
+                                        <div><span style="font-weight:600;">Date:&nbsp;</span>{{Fdata | date:'dd MMM yyyy'}} - {{TTdate | date:'dd MMM yyyy'}}</div>
+                                        <div><span style="font-weight:600;">Selected Status:&nbsp;</span>{{showStatus}}</div>
+                                        <!--<div>Date</div>
+                                        <div>{{Fdata | date:'dd MMM yyyy'}} - {{TTdate | date:'dd MMM yyyy'}}</div>-->
+                                    </div>
+                                    <!--<div class="flex-fill">
+                                        <div>Selected Status</div>
+                                        <div>{{showStatus}}</div>
+                                    </div>-->
+                                    <div class="d-flex">
+                                        <div style="padding: 5px;">
+                                            <i id="TicketExcelExport" class="fa fa-file-excel-o"  ng-click="fnOpenExcelModal(mode)" style="color: #888888;cursor:pointer" title="Export to excel"></i>
+                                        </div>
+                                        <div style="padding: 5px;">
+                                            <i id="Detailheader" class="fa fa-print" aria-hidden="true" ng-click="printData(TicketQryDetails)" style="color: #888888;cursor:pointer" title="Print"></i>
+                                        </div>
+                                        <div ng-show="ShowForm" style="padding: 5px;">
+                                            <i id="Cancelheader" class="fa fa-times" aria-hidden="true" ng-click="fncloseTqry();" style="color: #888888;cursor:pointer" title="Cancel"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul id="printdetailsdiv" ng-show="mode=='D'" style="list-style: none;" class="list-group list-group-flush">
+                                    <li class="list-group-item" ng-repeat="mytickelement in TicketQryDetails">
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Ticket Id : </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+                                                <label  style="text-align:left;">
+                                                    <!--<input type="text" readonly value="{{mytickelement.TicketID}}">ng-click="fnShowDetailFromTicketquery(mytickelement.TicketID)"-->
+                                                    <a style="font-size:14px;border-bottom: 1px solid!important ; padding-bottom: 0.1rem!important;" class="url"
+                                                       data-toggle="modal" data-target="#myModal" ng-click="fnShowDetailFromTicketquery(mytickelement.TicketID,mytickelement)"><span>{{mytickelement.TicketID}}</span></a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Contact Name : </label>
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.CustName}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Created On : </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.CallTime | date:'dd MMM yyyy'}}
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Status : </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.Status}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Product : </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.Product}}
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Environment : </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.envrnmt}}
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Priority : </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.Priority}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Type : </label>
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.Category}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Build : </label>
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.Build}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Client Defined Field : </label>
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.UserUDF}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Synopsis : </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.25rem;padding-left: 40px;">
+
+                                                <label  style="text-align:left;">
+                                                    {{mytickelement.Synopsis}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;">
+                                            <div class="col-lg-1" style="padding-bottom:0px;padding-top: 0.25rem;">
+                                                <label class="label" style="text-align:left;">Problem Description: </label>
+
+                                            </div>
+                                            <div class="col-lg-11" style="padding-bottom:0px;padding-top: 0.35rem;padding-left: 40px;">
+
+                                                <div style="word-break: unset;padding-right: 40px;">
+                                                    {{mytickelement.Detail}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" ng-hide="mytickelement.notes.length <= 0" style="margin-right: 2rem;margin-left: 1rem;">
+                                            <div class="col-lg-12">
+                                                <table class="table table-bordered tab">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width:70%;">Existing Comments</th>
+                                                            <th style="width:30%;">&nbsp;</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="note in mytickelement.notes">
+                                                            <td>
+                                                                <p ng-bind-html="note.NoteText  | toTrusted"></p>
+                                                            </td>
+                                                            <td>
+                                                                <div class="col-md-4">
+                                                                    <strong>Date</strong>
+                                                                    <br />
+                                                                    {{note.NoteDate | date:'MMM dd yyyy'}}
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Time</strong>
+                                                                    <br />
+                                                                    {{note.NoteDate.split('T')[1]}}
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>User</strong>
+                                                                    <br />
+                                                                    {{note.Author}}
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li ng-hide="TicketQryDetails.length > 0" style="margin-left:10px; padding-top:10px;" ng-class="TicketQryDetails.length > 0  ? 'd-none' :  '' ">                                       
+                                            No data to display.
+                                    </li>
+                                </ul>
+
+                                <div id="printsummarydiv" ng-show="mode=='S'" class="card-body" infinite-scroll="morePage=1;ShowRecords(mode)" can-load="canLoad" threshold="10000">
+                                    <table class="table  table-bordered table-hover ng-isolate-scope dataTable no-footer" role="grid">
+                                        <thead>
+                                            <tr>
+                                                <th style="white-space: nowrap;">Ticket Id</th>
+                                                <th style="white-space: nowrap;">Contact Name</th>
+                                                <th style="white-space: nowrap;">Created On</th>
+                                                <th>Type</th>
+                                                <th>Product</th>
+                                                <th>Build</th>
+                                                <th>Priority</th>
+                                                <th>Status</th>
+                                                <th>Environment</th>
+                                                <th style="white-space: nowrap;">Client Defined  Field</th>
+                                                <th>Synopsis</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="mytickelement in TicketQryDetails">
+                                                <!--<td style="white-space: nowrap;" ng-click="fnShowDetailFromTicketquery(mytickelement.TicketID)"  ng-click="DetailsTicketList(mytickelement.TicketID)">{{mytickelement.TicketID}}</td>-->
+                                                <td><a class="url" data-toggle="modal" data-target="#myModal" ng-click="fnShowDetailFromTicketquery(mytickelement.TicketID,mytickelement)"><span>{{mytickelement.TicketID}}</span></a></td>
+                                                <td>{{mytickelement.CustName}}</td>
+                                                <td>{{mytickelement.CallTime | date:'dd MMM yyyy'}}</td>
+                                                <td>{{mytickelement.Category}}</td>
+                                                <td>{{mytickelement.Product}}</td>
+                                                <td>{{mytickelement.Build}}</td>
+                                                <td>{{mytickelement.Priority}}</td>
+                                                <td>{{mytickelement.Status}}</td>
+                                                <td>{{mytickelement.envrnmt}}</td>
+                                                <td>{{mytickelement.UserUDF}}</td>
+                                                <td>{{mytickelement.Synopsis}}</td>
+                                            </tr>
+                                            <tr ng-hide="TicketQryDetails.length > 0 " ng-class="TicketQryDetails.length > 0  ? 'd-none':''">
+                                                <td colspan="100%">
+                                                    No data to display.
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <div style="padding-bottom: 1.5rem !important; padding: 5px 1.5rem; text-align: right">
+                                    <span class="card-footer text-primary" style="padding-bottom: 1.5rem!important;padding: 5px 1.5rem;text-align: right;"></span>
+                                    <!--<span style="font-size:large; cursor:pointer;" title="Up"><i class="fa fa-chevron-up"></i></span>-->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+<div style="padding-bottom: 1.5rem !important; padding: 5px 1.5rem; text-align: center">
+    <button style="cursor:pointer;" ng-click="topFunction()" id="myBtn" title="Go to top"><span style="padding-right: 8px;font-size:small">Showing <span id="spanTicketTotalofRec2"></span> Records </span><i style="font-size: x-large;" class="fa fa-chevron-up"></i></button>
+</div>
+<script>
+    $('.datepicker').datepicker({
+        dateFormat: 'dd M yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "-100:+0",
+    });
+
+
+</script>

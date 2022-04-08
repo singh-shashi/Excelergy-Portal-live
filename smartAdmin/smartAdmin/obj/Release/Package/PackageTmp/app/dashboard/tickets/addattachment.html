@@ -1,0 +1,68 @@
+﻿<div class="row">
+    <article class="col-sm-18 col-lg-12">
+        <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+            <!-- widget content -->
+            <div class="widget-body smart-form" style="border-bottom: 0px;">
+                <header>
+                    <h2 style="display: inline-block;">Add Attachment</h2>
+                    <i class="fa fa-close attachment-close" ng-click="addAttachmentsOk()"></i>
+                </header>
+                <fieldset class="add_ticketdetails add_details">
+                    <section>
+                        <label for="myFileField" class="file-select">Select a file: </label>
+                        <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />multiple-->
+                        <input type="file" ng-model="fileObj" id="file1" class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                    </section>
+                    <section>
+                        <label for="myFileField" class="file-select">Select a file: </label>
+                        <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />-->
+                        <input type="file" ng-model="fileObj1" id="file2"  class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                    </section>
+                    <section>
+                        <label for="myFileField" class="file-select">Select a file: </label>
+                        <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />-->
+                        <input type="file" ng-model="fileObj2"  id="file3" class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                    </section>
+                    <section>
+                        <label for="myFileField" class="file-select">Select a file: </label>
+                        <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />-->
+                        <input type="file" ng-model="fileObj3"  id="file4" class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                    </section>
+                    <!--<section>
+                        <div class="previewData clearfix" ng-repeat="data in previewData track by $index">
+
+                            <img src={{data.src}}>
+                            <div class="previewDetails">
+                                <div class="detail">
+                                    <span style="margin-right:10px">
+                                        <span ng-click="remove(data)" class="circle remove">
+                                            <i class="fa fa-close"></i>
+                                        </span>
+                                    </span>
+                                    <span><b>{{$index+1}}. Name : </b>{{data.name}}</span>
+                                  
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </section>-->
+                    <footer class="addattachment_footer">
+
+                        <button type="button" class="btn btn-labeled btn-success" ng-click="uploadFile()">
+                            <!---->
+                            <span class="btn-label ">
+                                <i class="fa fa-save"></i>
+                            </span>Upload
+                        </button>
+                    </footer>
+                </fieldset>
+            </div>
+        </div>
+    </article>
+
+
+</div>

@@ -1,0 +1,30 @@
+﻿<div id="wid-0" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" ng-controller="myDocControl" class="div-h100vh-mb3per increasingwidget">
+    <header class="">
+        <span class="widget-icon"><i class="fa fa-file-text"></i></span>
+        <h2>My Documents</h2>
+        <div class="widget-toolbar">
+            <div class="btn-group" data-toggle="buttons">
+                <a href="javascript:void(0);" ng-model="refreshTicket" rel="tooltip" title="" data-placement="bottom" data-original-title="Refresh" ng-click="loadmydoc()"><i class="fa fa-refresh"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- widget div-->
+    <div class="p-0-5-0">
+        <div class="widget-body no-padding scrollbar" id="style-1" style="max-height:205px !important; overflow: auto !important">
+            <span class="data">{{widget}}</span>
+            <div class="list-group">
+                <div class="list-group-item clearfix d-flex" ng-repeat="mydocElement in mydoc">
+                    <a class="flex-fill padding1percent downloadText" href="{{downloadMydocLink(mydocid,mydocElement.DOCNAME, mydocElement.DOCPATH)}}">
+                        <span title="{{mydocElement.DOCNAME}}" class="flex-fill padding1percent">{{mydocElement.DOCNAME}}</span>
+                    </a>
+                    <span class="pull-right">
+                        <a class="btn btn-xs btn-default" href="{{downloadMydocLink(mydocid,mydocElement.DOCNAME, mydocElement.DOCPATH)}}" download="{{mydocElement.DOCNAME}}">
+                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,473 @@
+﻿<div id="content">
+    <div class="row no-border" style="background: transparent;display:none">
+        <div class="col-sm-18 col-lg-12 footer">
+            <!-- Button trigger modal -->
+            <!--<button class="btn btn-success btn-lg pull-left header-btn hidden-mobile" ng-click="fnBack()">
+                <span class="glyphicon glyphicon-arrow-left pull-left"></span>&nbsp;Back
+            </button>-->
+
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnUpdateTicket()" ng-disabled="Status=='Closed'" id="btnSubmit">
+                <span class="btn-label">
+                    <i class="fa fa-wrench"></i>
+                </span>Update
+            </button>
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnBack()" id="btnCancel">
+                <span class="btn-label">
+                    <i class="fa fa-close"></i>
+                </span>Cancel
+            </button>
+        </div>
+    </div>
+
+    <div class="row div-mt-13">
+        <!--Ticket View/Update-->
+        <article class="col-sm-13 col-lg-6">
+            <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+                <div role="content">
+                    <!-- widget content ng-show="PAccessTyp=='Power'"-->
+                    <div class="widget-body smart-form">
+                        <header style="min-height:10px !important">
+                            <i class="fa fa-print" aria-hidden="true" ng-click="fnPrintdata()" style="color: #888888;float: right; display:none;" title="Print"></i>
+                            <h2>Ticket #{{ticketid}}</h2>
+
+                        </header>
+                        <fieldset>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Ticket ID</label>
+                                    <label class="input">
+                                        <input type="text" value="{{ticketid}}" readonly id="cat" tabindex="1">
+                                    </label>
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">DB Platform<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelDBPlat">
+                                        <select ng-model="ticketdet[0].DBPlat" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="13">
+                                            <option value=""></option>
+                                            <option ng-repeat="DBplat in DBplats" value="{{DBplat.DBPlatfm}}">{{DBplat.DBPlatfm}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Status</label>
+                                    <label class="select" id="labelStatus">
+                                        <select ng-model="ticketdet[0].Status" ng-change="DisabledControl(event)"
+                                                ng-disabled="Status=='Closed' || (Status!='Reported'
+                                                                                && Status!='Assigned' && Status!='Awaiting Release'
+                                                                                && Status!='Awaiting Engineering'
+                                                                                && Status!='Escalated'
+                                                                                && Status!='Reopen'
+                                                                                && Status!='Researching'
+                                                                                && Status!='Request Info'
+                                                                                && Status!='Resolved')" tabindex="2">
+                                            <option value="{{Status}}" title="Jurisdiction">{{Status}}</option>
+                                            <option value="Reopen" ng-show="Status=='Resolved'">Reopen</option>
+                                            <option value="Closed" ng-hide="Status=='Closed'">Closed</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Operating System<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelOpsystem">
+                                        <select ng-model="ticketdet[0].Opsystem"
+                                                ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="14">
+                                            <!--<option value=""></option>-->
+                                            <option ng-repeat="OS in OSs" ng-selected="{{OS.OperSys == ticketdet[0].Opsystem}}" value="{{OS.OperSys}}">
+                                                {{OS.OperSys}}
+                                            </option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+                            </div>
+
+
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Type<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelCategory">
+                                        <select ng-model="ticketdet[0].Category" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="3">
+                                            <option value="Application Error" title="Application Error">Application Error</option>
+                                            <option value="Configuration" title="Configuration">Configuration</option>
+                                            <option value="DB Error" title="DB Error">DB Error</option>
+                                            <option value="Documentation Inconsistency" title="Documentation Inconsistency">Documentation Inconsistency</option>
+                                            <option value="Enhancement Request" title="Enhancement Request">Enhancement Request</option>
+                                            <option value="Hardware Problem" title="Hardware Problem">Hardware Problem</option>
+                                            <option value="Installation/Upgrade Error" title="Installation/Upgrade Error">Installation/Upgrade Error</option>
+                                            <option value="Operating System" title="Operating System">Operating System</option>
+                                            <option value="Other" title="Other">Other</option>
+                                            <option value="Printing" title="Printing">Printing</option>
+                                            <option value="Product Question" title="Product Question">Product Question</option>
+                                            <option value="Reporting" title="Reporting">Reporting</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Functional Area<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelFuncarea">
+                                        <select ng-model="ticketdet[0].Funcarea" ng-change="selectFunctionalArea()" ng-disabled="StatusClosed==true || FnDisabled==true || Status=='Closed' || (Status!='Reported')" tabindex="15">
+                                            <option value=""></option>
+                                            <option ng-repeat="fnc in fncs track by $index" value="{{fnc}}">{{fnc}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Product<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelProduct">
+                                        <select ng-model="ticketdet[0].Product" ng-change="selectProduct()" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="4">
+                                            <option value=""></option>
+                                            <option ng-repeat="Product in ProductNames | unique:'PName'"
+                                                    value="{{Product.PName}}">
+                                                {{Product.PName}}
+                                            </option>
+                                        </select>
+
+                                        <i></i>
+                                    </label>
+
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Sub Functional Area</label>
+                                    <label class="select" id="labelSubfunct">
+                                        <select ng-model="ticketdet[0].Subfunct" ng-disabled="StatusClosed==true || SubFnDisabled==true || Status=='Closed' || (Status!='Reported')" id="upSelect" tabindex="16">
+                                            <option value=""></option>
+                                            <option ng-repeat="subfnc in subfncs" value="{{subfnc.subfunct}}">{{subfnc.subfunct}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Kit</label>
+                                    <label class="select" id="labelKittype">
+                                        <select ng-model="ticketdet[0].Kittype" ng-disabled="StatusClosed==true || KitDisabled || Status=='Closed' || (Status!='Reported')" tabindex="5" ng-change="selectKit()">
+                                            <option value=""></option>
+                                            <option value="Jurisdiction" title="Jurisdiction">Jurisdiction</option>
+                                            <option value="Region" title="Region">Region</option>
+                                            <option value="Translation" title="Translation">Translation</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+                                <!--"-->
+                                <section class="col col-lg-6">
+                                    <label class="label">Others to be Notified</label>
+                                    <label class="input" id="labelAddusers">
+                                        <input type="text" ng-disabled="StatusClosed==true || Status=='Closed'
+                                               || (Status!='Reported' && Status!='Assigned' && Status!='Awaiting Release'
+                                               && Status!='Awaiting Engineering' && Status!='Reopen'
+                                               && Status!='Escalated'
+                                               && Status!='Reopen'
+                                               && Status!='Request Info'
+                                               && Status!='Researching'
+                                               && Status!='Resolved')" value="{{ticketdet[0].Addusers}}"
+                                               title="{{ticketdet[0].Addusers}}" ng-model="ticketdet[0].Addusers" id="NotifyOthers" tabindex="17">
+                                    </label>
+                                </section>
+
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Juris/Trans/Region</label>
+                                    <label class="select" id="labelJurisdic">
+                                        <select id="IdJurisdic" ng-model="ticketdet[0].Jurisdic" ng-change="selectJurisdic()" ng-disabled="StatusClosed==true || KitDisabled || Status=='Closed' || (Status!='Reported')" tabindex="6">
+                                            <option value=""></option>
+                                            <option ng-repeat="JurisdicDetail in JurisdicDetails  track by $index" value="{{JurisdicDetail}}">{{JurisdicDetail}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Creator</label>
+                                    <label class="input" id="labelEndUser">
+                                        <input type="text" value="{{ticketdet[0].EndUser}}" readonly ng-model="ticketdet[0].EndUser" tabindex="18">
+                                    </label>
+                                </section>
+
+
+                            </div>
+                            <div class="row">
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Environment<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelenvrnmt">
+                                        <select ng-model="ticketdet[0].envrnmt" ng-change="selectEnv()" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="8">
+                                            <!--KitDisabled ||-->
+
+                                            <option ng-repeat="EnvrnDetail in EnvrnDetails" value="{{EnvrnDetail}}">{{EnvrnDetail}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">Ticket Reported</label>
+                                    <label class="input" id="labelCallTime">
+                                        <input type="text" value="{{ticketdet[0].CallTime | date:'dd MMM yyyy  hh:mm:ss'}}" readonly tabindex="19">
+                                    </label>
+                                </section>
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Build/Kit #<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelBuild">
+                                        <select ng-model="ticketdet[0].Build" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="7">
+                                            <option value=""></option>
+
+                                            <!--<option value="{{ticketdet[0].Build}}">{{ticketdet[0].Build}}</option>-->
+                                            <option ng-repeat="BuildD in BuildDetails" value="{{BuildD.BuildKit}}">{{BuildD.BuildKit}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">Ticket Closed</label>
+                                    <label class="input" id="labelClosedat">
+                                        <input type="text" value="{{ticketdet[0].Closedat | date:'dd MMM yyyy  hh:mm:ss'}}" readonly tabindex="20">
+                                    </label>
+                                </section>
+
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Priority<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelPriority">
+                                        <select ng-model="ticketdet[0].Priority" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="9">
+                                            <option value="1-Critical">1-Critical</option>
+                                            <option value="2-High">2-High</option>
+                                            <option value="3-Medium">3-Medium</option>
+                                            <option value="4-Low">4-Low</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Resolution</label>
+                                    <label class="select" id="labelResoluti">
+
+                                        <select ng-model="ticketdet[0].Resoluti" ng-disabled="ResolutionEnable ||  changeCloseStatus!='Closed'" tabindex="21">
+                                            <option value=""></option>
+                                            <option value="Application Error">Application Error</option>
+                                            <option value="Bad Data">Bad Data</option>
+                                            <option value="By Design">By Design</option>
+                                            <option value="Cancelled/Resolved by Customer">Cancelled/Resolved by Customer</option>
+                                            <option value="Documentation Enhanced">Documentation Enhanced</option>
+                                            <option value="Duplicate Entry">Duplicate Entry</option>
+                                            <option value="Enhancement Implemented">Enhancement Implemented</option>
+                                            <option value="Environmental">Environmental</option>
+                                            <option value="Other">Other</option>
+                                            <option value="Question Answered">Question Answered</option>
+                                            <option value="Task Completed">Task Completed</option>
+                                            <option value="Unable to Reproduce">Unable to Reproduce</option>
+                                            <option value="User Error">User Error</option>
+
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Client Defined Field</label>
+                                    <label class="input" id="labelUserUDF">
+                                        <input type="text" maxlength="64" ng-disabled="StatusClosed==true || Status=='Closed'
+                                               || (Status!='Reported' && Status!='Assigned' && Status!='Awaiting Release'
+                                               && Status!='Awaiting Engineering' && Status!='Reopen'
+                                               && Status!='Escalated'
+                                               && Status!='Reopen'
+                                               && Status!='Request Info'
+                                               && Status!='Researching'
+                                               && Status!='Resolved')" value="{{ticketdet[0].ClientDF}}"
+                                               title="{{ticketdet[0].UserUDF}}" ng-model="ticketdet[0].UserUDF" style="padding-left:5px" tabindex="10">
+                                    </label>
+                                </section>
+                                <section class="col col-lg-6">
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-12" style="width:94%">
+                                    <label class="label">Synopsis<span class="mandatory">*</span></label>
+                                    <label class="input" id="labelSynopsys">
+
+                                        <input type="text" ng-model="ticketdet[0].Synopsis" placeholder="Synopsis" style="padding-left:5px" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported'  )" tabindex="11">
+                                    </label>
+                                    <!--<label class="textarea" id="labelSynopsis">
+                <textarea style="padding-left:5px" ng-model="ticketdet[0].Synopsis" ng-disabled="Status=='Closed'">{{ticketdet[0].Synopsis}}</textarea>
+            </label>-->
+                                </section>
+
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-12" style="width:94%">
+                                    <label class="label">Problem Description<span class="mandatory">*</span></label>
+                                    <label class="textarea" id="labelDetail">
+                                        <!--<input type="text" ng-model="ticketdet[0].Detail" placeholder="Detail" style="padding-left:5px" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="11">-->
+
+                                        <textarea rows="4" style="padding-left:5px" ng-model="ticketdet[0].Detail" ng-disabled="StatusClosed==true || Status=='Closed' || (Status!='Reported')" tabindex="11">{{ticketdet[0].Detail}}</textarea>
+                                    </label>
+                                </section>
+
+
+                            </div>
+                            <div class="row" style="display:none;">
+                                <section class="col col-lg-12" style="width:94%">
+                                    <label class="label">Note </label>
+                                    <label class="input" id="labelDetail">
+                                        <textarea rows="4" style="padding-left:5px" ng-disabled="NoteDisable" ng-model="ticketdet[0].NoteText" tabindex="12"></textarea>
+                                    </label>
+                                </section>
+
+
+                            </div>
+                        </fieldset>
+
+                        <footer>
+                            <button type="button" class="btn btn-labeled btn-success" ng-click="fnUpdateTicket()" ng-disabled="Status=='Closed'" id="btnSubmit">
+                                <span class="btn-label">
+                                    <i class="fa fa-wrench"></i>
+                                </span>Update
+                            </button>
+                            <button type="button" class="btn btn-labeled btn-success" ng-click="fnBack()" id="btnCancel">
+                                <span class="btn-label">
+                                    <i class="fa fa-close"></i>
+                                </span>Cancel
+                            </button>
+                        </footer>
+
+                    </div>
+                    <!--  end widget body-->
+                </div>
+            </div>
+
+        </article>
+        <!--Ticket View/Update-->
+        <article class="col-sm-5 col-lg-6">
+            <div jarvis-widget="" id="Div1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false"
+                 data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget" role="widget">
+                <header>
+                    <h2>Notes</h2>
+                    <div class="widget-toolbar">
+                        <a href="javascript:void(0);" class="tiptool" ng-click="fnLoadLinkedNotes()">
+                            <i class="fa fa-refresh"></i><span class="tiptool"><span class="tooltiptext">Refresh Note</span></span>
+                        </a>
+                    </div>
+                    <div class="widget-toolbar" ng-hide="Status=='Closed'">
+                        <a href="javascript:void(0);" class="tiptool" ng-click="addNote()">
+                            <i class="fa fa-plus"></i><span class="tiptool"><span class="tooltiptext">Add Note</span></span>
+                        </a>
+                    </div>
+                </header>
+                <!-- widget content -->
+                <div id="style-2" class="widget-body scrollbar no-margin no-padding">
+
+                    <div class="no-border" ng-class="{'noData': (noteList.length <= 0)}" style="padding:0 4%;">
+                        <div class="smart-timeline">
+                            <ul class="smart-timeline-list">
+                                <li ng-repeat="note in noteList">
+                                    <div class="smart-timeline-icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="smart-timeline-time">
+                                        <small>{{note.NoteDate | date: "dd MMM yyyy hh:mm:ss a"}}</small>
+                                    </div>
+                                    <div class="smart-timeline-content">
+                                        <p>
+                                            <a href-void style="text-transform: none;width: 400px!important; white-space: nowrap; overflow: hidden;text-overflow: ellipsis;display: block" title="{{note.Author}} - {{note.Subject}}"><strong>{{note.Author}} - {{note.Subject}}</strong></a>
+                                        </p>
+                                        <p ng-bind-html="note.NoteText">
+
+                                        </p>
+
+                                    </div>
+                                </li>
+                                <li ng-hide="noteList.length > 0 " style="text-align:center">No data to display.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end widget body-->
+
+            </div>
+
+            <div jarvis-widget="" id="Div2" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget" role="widget">
+
+                <!-- widget content -->
+                <header>
+                    <h2>Attachment</h2>
+                    <div class="widget-toolbar">
+                        <a href="javascript:void(0);" class="tiptool" ng-click="fnLoadLinkeAttachments()">
+                            <i class="fa fa-refresh"></i><span class="tiptool"><span class="tooltiptext">Refresh Attachment</span></span>
+                        </a>
+                    </div>
+                    <div class="widget-toolbar" ng-hide="Status=='Closed'">
+                        <a href="javascript:void(0);" class="tiptool" ng-disabled="buttonDisabled" ng-click="addattachment()">
+                            <i class="fa fa-plus"></i><span class="tiptool"><span class="tooltiptext">Add Attachment</span></span>
+                        </a>
+                    </div>
+                </header>
+
+
+                <div class="widget-body smart-form noteattachment">
+
+
+                    <div class="widget-body scrollbar no-margin no-padding nice_scroll">
+                        <fieldset>
+                            <section ng-repeat="attach in attachList">
+                                <div class="list-group-item clearfix">
+                                    {{attach.DOCNAME}}
+                                    <span class="pull-right">
+                                        <a class="btn btn-xs btn-default" href="{{downTickattLink(attach.DOCNAME)}}" download="{{attach.DOCNAME}}">
+                                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        </a>
+                                    </span>
+                                </div>
+                            </section>
+                            <section ng-hide="attachList.length > 0" style="text-align:center">
+                                No data to display
+                            </section>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- end widget body-->
+
+
+            </div>
+
+
+        </article>
+    </div>
+
+</div>

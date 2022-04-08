@@ -1,0 +1,221 @@
+﻿<div ng-controller="accountcontrol" id="content">
+    <div class="row no-border" style="background: transparent;">
+        <div class="col-sm-18 col-lg-12 footer">
+            <!-- Button trigger modal -->
+
+            <button type="button" class="btn btn-labeled btn-success" ng-disabled="submitacct" ng-click="fnupdateacc()" ng-show="PortalAcTyp=='Power'"  id="btnSubmit">
+                <span class="btn-label">
+                    <i class="fa fa-wrench"></i>
+                </span>Update
+            </button>
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnBack()"  id="btnCancel">
+                <span class="btn-label ">
+                    <i class="fa fa-close"></i>
+                </span>Cancel
+            </button>
+        </div>
+    </div>
+
+
+    <div class="row div-mt-13">
+        <article class="col-sm-12 col-lg-8">
+            <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+                <div class="widget-body smart-form no-border" style="border-bottom: 0px;">
+                    <div id="printdiv">
+                        <header>
+
+                            <h2>
+                                My Account
+                                <i class="fa fa-print" aria-hidden="true" ng-click="fnPrintdata('printdiv')" style="color: #888888;float: right;" title="Print"></i>
+                            </h2>
+
+                        </header>
+                        <fieldset>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Company<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Company" value="{{Company}}" ng-readonly="true"  id="cat" tabindex="1">
+                                    </label>
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">Phone<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="MainPh" value="{{MainPh}}"  tabindex="8">
+                                    </label>
+                                </section>
+                                <!--<section ng-show="PortalAcTyp=='Power'">
+                                    <label class="label">Status</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Status" value="{{Status}}" ng-readonly="true">
+                                    </label>
+                                </section>-->
+
+                              
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Address1<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Address1" value="{{Address1}}"   tabindex="2">
+                                    </label>
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">Fax</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="MainFax" value="{{MainFax}}"  tabindex="9">
+                                    </label>
+                                </section>
+                              
+
+                            </div>
+                            <div class="row">
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Address2</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Address2" value="{{Address2}}"   tabindex="3">
+                                    </label>
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">Website</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Url" value="{{Url}}"  tabindex="10">
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">City<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="City" value="{{City}}"  tabindex="4">
+                                    </label>
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">Company Size</label>
+                                    <label class="input">
+                                        <input type="text" maxlength="10" ng-model="AccSize" value="{{AccSize}}"  tabindex="11">
+                                    </label>
+                                </section>
+
+
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">State<span class="mandatory">*</span></label>
+                                    <label class="select">
+                                        <select ng-model="AccState" style="width: 100%;"   tabindex="5">
+                                            <option ng-repeat="c in Statedata" value="{{c.STATEPR}}" ng-selected="c.STATEPR=='{{AccState}}'">{{c.STATEPR}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">FTP ID</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="FtpId" value="{{FtpId}}" ng-readonly="true"   tabindex="12">
+                                    </label>
+                                </section>
+                               
+                            </div>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Zip Code<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="ZipCode" value="{{ZipCode}}"   tabindex="6">
+                                    </label>
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">FTP Password</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="FtpPass" value="{{FtpPass}}" ng-readonly="true"   tabindex="13">
+                                    </label>
+                                </section>
+                             
+                            </div>
+                           
+                           
+                            <div class="row">
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Country<span class="mandatory">*</span></label>
+                                    <label class="select">
+                                        <select ng-model="Country" ng-change='loadState()' style="width: 100%;"   tabindex="7">
+                                            <option ng-repeat="c in Countrydata" value="{{c.Country}}" ng-selected="c.Country=='{{Country}}'">{{c.Country}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                </section>
+                               
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Client Engagement Manager</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Salesrep" value="{{Salesrep}}" ng-readonly="true"   tabindex="14">
+                                    </label>
+                                </section>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div>
+                                <section style="width:100% !important">
+                                    <label class="label">Note</label>
+                                    <label class="input">
+                                        <textarea ng-model="Note" value="{{Note}}"   tabindex="15" id="upSelect" class="input-md" style="width:100% !important;min-height:100px;" cols="30"></textarea>
+                                    </label>
+                                </section>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+        <article class="col-sm-12 col-lg-4">
+            <div jarvis-widget="" id="Div1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget" role="widget">
+                <header>
+                    <h2>Notes</h2>
+                    <div class="widget-toolbar">
+                        <a href="javascript:void(0);" class="tiptool">
+                            <i class="fa fa-refresh" ng-click="fnLoadLinkedNotes()"></i><span class="tiptool"><span class="tooltiptext">Refresh Note</span></span>
+                        </a>
+                    </div>
+                </header>
+                <!-- widget content -->
+                <div id="style-2" class="widget-body scrollbar no-margin no-padding">
+
+                    <div class="no-border" ng-class="{'noData': (noteList.length <= 0)}" style="padding:0 4%;">
+                        <div class="smart-timeline">
+                            <ul class="smart-timeline-list">
+                                <li ng-repeat="note in noteList">
+                                    <div class="smart-timeline-icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="smart-timeline-time">
+                                        <small>{{note.NoteDate | date: "dd MMM yyyy hh:mm:ss a"}}</small>
+                                    </div>
+                                    <div class="smart-timeline-content">
+                                        <p>
+                                            <a href-void style="text-transform: none;width: 230px!important; white-space: nowrap; overflow: hidden;text-overflow: ellipsis;display: block" title="{{note.Author}} - {{note.Subject}}"><strong>{{note.Author}} - {{note.Subject}}</strong></a>
+                                        </p>
+                                        <p  ng-bind-html="note.NoteText">
+                                            <!--{{note.NoteText}}-->
+                                        </p>
+
+                                    </div>
+                                </li>
+                                <li ng-hide="noteList.length > 0 " style="text-align:center">No data to display.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end widget body-->
+
+            </div>
+        </article>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,28 @@
+﻿  <div id="graphicalWidget" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" class=""  ng-controller="reportControl">
+                    <header>
+                        <span class="widget-icon"><i class="fa fa-area-chart"></i></span>
+                        <h2>Reports</h2>
+                        <ul class="nav nav-tabs pull-right in" id="myTab">
+                            <li ng-class="$index == 0 ? 'active' : ''" ng-repeat="report in SFReports">
+                                <a data-toggle="tab" id="{{$index}}" href="#s{{$index}}" aria-expanded="true" ng-click="tabchange($event)" ng-switch="report.RptSubType">
+                                    <i ng-switch-when="Line Graph" class="fa fa-line-chart"></i>
+                                    <i ng-switch-when="2D Pie Graph" class="fa fa-pie-chart"></i>
+                                    <i ng-switch-default class="fa fa-bar-chart"></i>
+                                    &nbsp;<span class="hidden-mobile hidden-tablet">{{report.Title}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding" style="height: 330px !important; overflow-x: hidden; overflow-y: auto !important">
+                            <span class="data">{{widget}}</span>
+                            <div id="myTabContent" class="tab-content">
+                                
+                                <div ng-class="$index == 0 ? 'tab-pane fade padding-10 no-padding-bottom active in' : 'tab-pane fade padding-10 no-padding-bottom'" id="s{{$index}}" ng-repeat="report in SFReports" on-finish-render="ngRepeatFinishedReports">
+                                    <div class="graphicalwidget chart" reportid="{{report.ReportID}}" reportsubtype="{{report.RptSubType}}" style="height: 280px; width: 800px; padding: 10px;"></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>

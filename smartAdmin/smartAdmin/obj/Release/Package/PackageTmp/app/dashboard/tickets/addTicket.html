@@ -1,0 +1,251 @@
+﻿<div id="content">
+    <div class="row no-border" style="background: transparent;">
+        <div class="col-sm-18 col-lg-12 footer">
+            <!-- Button trigger modal -->
+ 
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnSaveTicket()" ng-disabled="submitting" id="btnSubmit">
+                <span class="btn-label">
+                    <i class="fa fa-save"></i>
+                </span>Submit
+            </button>
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnClear()" id="btnClear">
+                <span class="btn-label">
+                    <i class="fa fa-refresh"></i>
+                </span>
+                Clear
+            </button>
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnBack()"   id="btnCancel">
+                <span class="btn-label">
+                    <i class="fa fa-close"></i>
+                </span>
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    <div class="row div-mt-13">
+        <article class="col-sm-18 col-lg-12">
+            <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+                <!-- widget content -->
+                <div class="widget-body smart-form" style="border-bottom: 0px;">
+                    <header>
+                        <h2>Submit a New Ticket</h2>
+                    </header>
+                    <fieldset class="add_ticket">
+
+                        <div class="row">
+                            <section class="col col-lg-6">
+                                <label class="label">Type<span class="mandatory">*</span></label>
+                                <label class="select"  id="labelCategory">
+                                    <select ng-model="Category" id="cat" tabindex="1">
+                                        <option value=""></option>
+                                        <option value="Application Error" title="Application Error" >Application Error</option>
+                                        <option value="Configuration" title="Configuration">Configuration</option>
+                                        <option value="DB Error" title="DB Error">DB Error</option>
+                                        <option value="Documentation Inconsistency" title="Documentation Inconsistency">Documentation Inconsistency</option>
+                                        <option value="Enhancement Request" title="Enhancement Request">Enhancement Request</option>
+                                        <option value="Hardware Problem" title="Hardware Problem">Hardware Problem</option>
+                                        <option value="Installation/Upgrade Error" title="Installation/Upgrade Error">Installation/Upgrade Error</option>
+                                        <option value="Operating System" title="Operating System">Operating System</option>
+                                        <option value="Other" title="Other">Other</option>
+                                        <option value="Printing" title="Printing">Printing</option>
+                                        <option value="Product Question" title="Product Question">Product Question</option>
+                                        <option value="Reporting" title="Reporting">Reporting</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+
+                            <section class="col col-lg-6">
+                                <label class="label">Priority<span class="mandatory">*</span></label>
+                                <label class="select"  id="labelPriority" >
+                                    <select ng-model="Priority" tabindex="9">
+                                        <option value=""></option>
+                                        <option value="4-Low">4-Low</option>
+                                        <option value="3-Medium">3-Medium</option>
+                                        <option value="2-High">2-High</option>
+                                        <option value="1-Critical">1-Critical</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-6">
+                                <label class="label">Product<span class="mandatory">*</span></label>
+                                <label class="select" id="labelProduct" >
+                                    <select ng-model="Product" ng-change="selectProduct()" tabindex="2">
+                                        <option value=""></option>
+                                        <option ng-repeat="Product in ProductNames | unique:'PName'" value="{{Product.PName}}">{{Product.PName}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                            <section class="col col-lg-6">
+                                <label class="label">DB Platform<span class="mandatory">*</span></label>
+                                <label class="select"  id="labelDBPlatfm"  >
+                                    <select ng-model="DBPlatfm" tabindex="10">
+                                        <option value=""></option>
+                                        <option ng-repeat="DBplat in DBplats" value="{{DBplat.DBPlatfm}}">{{DBplat.DBPlatfm}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+
+                            </section>
+                        </div>
+
+                        <div class="row">
+                            <section class="col col-lg-6">
+                                <label class="label">Kit</label>
+                                <label class="select"  id="labelKittype">
+                                    <select ng-model="Kittype" ng-disabled="KitDisabled" tabindex="3" ng-change="selectKit()">
+                                        <option value="" ></option>
+                                        <option value="Jurisdiction" title="Jurisdiction">Jurisdiction</option>
+                                        <option value="Region" title="Region">Region</option>
+                                        <option value="Translation" title="Translation">Translation</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                            <section class="col col-lg-6">
+                                <label class="label">Operating System<span class="mandatory">*</span></label>
+                                <label class="select"  id="labelOPERSYS">
+                                    <select ng-model="OPERSYS" tabindex="11">
+                                        <option value=""></option>
+                                        <option ng-repeat="OS in OSs" value="{{OS.OperSys}}">{{OS.OperSys}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                              
+                            </section>
+                        </div>
+                        
+                        <div class="row">
+                            <section class="col col-lg-6">
+                                <label class="label">Juris/Trans/Region</label>
+                                <label class="select"  id="labelJurisdic" >
+                                    <select ng-model="Jurisdic"  ng-disabled="KitDisabled" ng-change="selectJurisdic()" tabindex="4">
+                                        <option value=""></option>
+                                        <option ng-repeat="JurisdicDetail in JurisdicDetails track by $index" value="{{JurisdicDetail}}">{{JurisdicDetail}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                             
+                            </section>
+                            <section class="col col-lg-6">
+                                <label class="label">Functional Area<span class="mandatory">*</span></label>
+                                <label class="select"  id="labelfncarea" >
+                                    <select ng-model="fncarea" ng-change="selectFunctionalArea()" ng-disabled="FnDisabled" tabindex="12">
+                                        <option value=""></option>
+                                        <option ng-repeat="fnc in fncs  track by $index" value="{{fnc}}">{{fnc}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-6">
+                                <label class="label">Environment<span class="mandatory">*</span></label>
+                                <label class="select" id="labelenvrnmt">
+                                    <select ng-model="envrnmt" tabindex="6" ng-change="selectEnv()">
+                                        <option value=""></option>
+                                        <option ng-repeat="EnvrnDetail in EnvrnDetails   track by $index" value="{{EnvrnDetail}}">{{EnvrnDetail}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                            <section class="col col-lg-6">
+                                <label class="label">Sub Functional Area</label>
+                                <label class="select" id="labelsubfncarea">
+                                    <select ng-model="subfncarea" ng-disabled="SubFnDisabled" id="upSelect" tabindex="13">
+                                        <option value=""></option>
+                                        <option ng-repeat="subfnc in subfncs" value="{{subfnc.subfunct}}">{{subfnc.subfunct}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-6">
+                                <label class="label">Build Kit #<span class="mandatory">*</span></label>
+                                <label class="select" id="labelBuild">
+                                    <select ng-model="Build" tabindex="5">
+                                        <option value=""></option>
+                                        <option ng-repeat="BuildD in BuildDetails" value="{{BuildD.BuildKit}}">{{BuildD.BuildKit}}</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                            <section class="col col-lg-6">
+                                <label class="label">Others to be Notified</label>
+
+                                <label class="input" id="labelAddusers">
+                                    <i class="icon-append fa fa-microchip"></i>
+                                    <input type="text" ng-model="Addusers" value="{{Addusers}}" title="{{Addusers}}" id="NotifyOthers" />
+                                </label>
+
+                            </section>
+                        </div>
+
+                        <div class="row">
+                            <section class="col col-lg-12" style="width:94%">
+                                <label class="label">Synopsis<span class="mandatory">*</span></label>
+                                <label class="input" id="labelSynopsys">
+                                    <i class="icon-append fa fa-tag"></i>
+                                    <input type="text" ng-model="Synopsys" placeholder="Synopsis" style="padding-left:5px" tabindex="7" >
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="col col-lg-12" style="width:94%" >
+                                <label class="label">Description<span class="mandatory">*</span></label>
+                                <label class="textarea" id="labelDetail">
+                                    <i class="icon-append fa fa-comment"></i>
+                                    <textarea rows="10" ng-model="Detail"   style="width:100% !important;min-height:65px!important;" cols="30" tabindex="8"></textarea>
+                                </label>
+                            </section>
+                        </div>
+
+                        <div class="row">
+                            <section class="col col-lg-12" style="width:94%;">
+                                <h4>Add Attachments</h4>
+                            </section>
+                        </div>
+                         <div class="row">
+                             <!--<section class="col col-lg-6" >
+                                 <label for="myFileField" class="file-select" >Select file(s): </label>
+                                 <input type="file"  ng-model="fileObj" multiple onchange="angular.element(this).scope().updateFiles(this.files)" />
+                             </section>-->
+                             <section class="col col-lg-6">
+                                 <label for="myFileField" class="file-select">Select a file: </label>
+                                 <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />multiple-->
+                                 <input type="file" ng-model="fileObj" id="file1" class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                             </section>
+                             <section class="col col-lg-6">
+                                 <label for="myFileField" class="file-select">Select a file: </label>
+                                 <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />-->
+                                 <input type="file" ng-model="fileObj1" id="file2" class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                             </section>
+                             <section class="col col-lg-6">
+                                 <label for="myFileField" class="file-select">Select a file: </label>
+                                 <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />-->
+                                 <input type="file" ng-model="fileObj2" id="file3" class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                             </section>
+                             <section class="col col-lg-6">
+                                 <label for="myFileField" class="file-select">Select a file: </label>
+                                 <!--<input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />-->
+                                 <input type="file" ng-model="fileObj3" id="file4" class="fileUpload" onchange="angular.element(this).scope().updateFiles(event)" />
+                             </section>
+                             </div>
+                     
+                    </fieldset>
+
+                </div>
+                <!-- end widget body-->
+            </div>
+        </article>
+
+    </div>
+
+</div>

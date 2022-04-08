@@ -1,0 +1,28 @@
+﻿<div id="wid-4" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true" ng-controller="newsControl"  class="div-h100vh-mb3per increasingwidget">
+    <header>
+        <span class="widget-icon"><i class="fa fa-bullhorn"></i></span>
+        <h2>News</h2>
+        <div class="widget-toolbar">
+            <div class="btn-group" data-toggle="buttons">
+                <a href="javascript:void(0);" ng-model="refreshNews" rel="tooltip" title="" data-placement="bottom" data-original-title="Refresh" ng-click="loadNews()"><i class="fa fa-refresh"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- widget div-->
+    <div class="p-0-5-0">
+        <div class="news_content">
+            <div id="style-1" class="widget-body no-padding scrollbar" style="max-height: 205px!important; overflow: auto !important">
+                <span class="data">{{widget}}</span>
+                <div class="list-group">
+                    <div class="list-group-item" ng-repeat="newsElement in news">
+                        <h4 class="list-group-item-heading">{{newsElement.DisText}}</h4>
+                        <p class="list-group-item-text" style="word-break: break-all;">
+                            <a href="{{newsElement.URLText}}" class="url" target="_blank">{{newsElement.URLText}}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

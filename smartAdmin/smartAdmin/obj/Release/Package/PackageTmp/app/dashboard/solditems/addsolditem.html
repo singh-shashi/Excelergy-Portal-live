@@ -1,0 +1,90 @@
+﻿    <div class="row">
+        <article class="col-sm-18 col-lg-12">
+            <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+                <div>
+                    <!-- widget content -->
+                    <div class="widget-body smart-form" style="border-bottom: 0px;">
+                         <header>
+                            <h2>Add SO Item</h2>
+                        </header>
+                       <fieldset>
+                        <div>
+                            <section>
+                                <label class="label">Product Name</label>
+                                <label class="input">
+                                    <input type="text" ng-model="Product" class="input-md">
+                                </label>
+                            </section>
+
+                            <section>
+                                <label class="label">Part Number</label>
+                                <label class="input">
+                                    <input type="text"  ng-model="PartNum" class="input-md">
+                                </label>
+                            </section>
+                        </div>
+                        <div>
+                            <section>
+                                <label class="label">Company</label>
+                                <label class="input">
+                                    <input type="text"  ng-model="Company" class="input-md">
+                                </label>
+                            </section>
+
+                            <section>
+                                <label class="label">Unit of mass</label>
+                                <label class="input">
+                                    <input type="text" class="input-md"  ng-model="UnitOfMe">
+                                </label>
+                            </section>
+                        </div>
+                        <div>
+                            <section>
+                                <label class="label">Unit Price</label>
+                                <label class="input">
+                                    <input type="text" class="input-md"  ng-model="UPrice">
+                                </label>
+                            </section>
+                            <section>
+                                <label class="label">Quantity </label>
+                                <label class="input">
+                                    <input type="text" class="input-md"  ng-model="Quantty">
+                                </label>
+                            </section>
+                        </div>
+                        <div>
+                            <section>
+                                <label class="label">Total Price</label>
+                                <label class="input">
+                                    <input type="text" class="input-md"  ng-model="TPrice">
+                                </label>
+                            </section>
+                            <section>
+                                <label class="label">PO Number</label>
+                                <label class="input">
+                                    <input type="text" class="input-md"  ng-model="PONum">
+                                </label>
+                            </section>
+                        </div>
+                        <div>
+                           
+                        </div>
+                        </fieldset>
+                   
+                         <footer>
+                            <button class="btn btn-success btn-md pull-left header-btn hidden-mobile" ng-click="savedata()">
+                                Save
+                            </button>
+                            <button class="btn btn-success btn-md pull-left header-btn hidden-mobile" ng-click="ok()">
+                                Cancel
+                            </button>
+                         </footer>
+
+                    </div>
+                    <!-- end widget body-->
+                </div>
+            </div>
+        </article>
+
+    </div>
+

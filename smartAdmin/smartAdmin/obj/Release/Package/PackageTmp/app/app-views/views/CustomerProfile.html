@@ -1,0 +1,241 @@
+﻿<div id="content" ng-controller="customerProfiler">
+    <header>
+
+        <button type="button" class="btn btn-labeled btn-success" ng-click="fnUpdateUserProfile()" style="margin-bottom: 15px;margin-left: 8px;"  id="btnSubmit">
+            <span class="btn-label ">
+                <i class="fa fa-wrench"></i>
+            </span>Update
+        </button>
+
+        <button type="button" class="btn btn-labeled btn-success" ng-click="fnBackcont()" style="margin-bottom: 15px;margin-left: 8px;"  id="btnCancel">
+            <span class="btn-label ">
+                <i class="fa fa-close"></i>
+            </span>
+            Cancel
+        </button>
+    </header>
+
+    <div class="row">
+        <article class="col-sm-18 col-lg-12">
+            <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+                <div>
+                    <!-- widget content -->
+                    <div class="widget-body smart-form">
+                        <!-- <header>
+                            <h2>Add Ticket</h2>
+                        </header>-->
+                        <fieldset>
+                            <!--<div class="row">
+                                <section class="col col-lg-12">
+                                    <div class="inline-group">
+                                        <label class="radio">
+                                            <input type="radio" name="usergrp" ng-model="PERMLEVE"  value="Regular" ng-checked="(PERMLEVE=='Regular')" ng-disabled="PERMLEVE1=='Regular'"/>
+                                            <i></i>&nbsp;Regular User
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="usergrp" ng-model="PERMLEVE" value="Power" ng-checked="(PERMLEVE=='Power')"  ng-disabled="PERMLEVE1=='Regular'"/>
+                                            <i></i>&nbsp;Power User
+                                        </label>
+                                    </div>
+                                </section>
+                            </div>-->
+                            <div>
+                                <section>
+                                    <label class="label">Company </label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Company"  class="input-md" readonly id="cat" tabindex="1">
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Phone No<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="BPhone" class="input-md"  tabindex="11">
+                                    </label>
+                                </section>
+                            </div>
+                            <div>
+                                <section>
+                                    <label class="label">Salutation</label>
+                                    <label class="select">
+                                        <select ng-model="MrMs" style="width: 100%;"  tabindex="2">
+                                            <option value=""></option>
+                                            <option value="Mr">Mr</option>
+                                            <option value="Mrs">Mrs</option>
+                                            <option value="Ms">Ms</option>
+                                            <option value="Dr">Dr</option>
+                                        </select>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Mobile</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Mobile" class="input-md"  tabindex="12">
+                                    </label>
+                                </section>
+                            </div>
+                            <div>
+                                <section>
+                                    <label class="label">First Name<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="FName" ng-change='change()' class="input-md"  tabindex="3">
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Fax</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Fax" class="input-md"  tabindex="13">
+                                    </label>
+                                </section>
+                            </div>
+
+                            <div>
+                            
+
+                                <section>
+                                    <label class="label">Last Name<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="LName" ng-change='change()' class="input-md"  tabindex="4">
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Address Line 1</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Address1" class="input-md"  tabindex="14">
+                                    </label>
+                                </section>
+
+                            </div>
+                            <div>
+                                <section>
+                                    <label class="label">Type<span class="mandatory">*</span></label>
+                                    <label class="select">
+                                        <select ng-model="AddType" style="width: 100%;" ng-disabled="PERMLEVE1=='Regular'"  tabindex="5">
+                                            <option ng-repeat="c in AddTypeData" value="{{c.AddType}}" ng-selected="c.AddType=='{{AddType}}'" >{{c.AddType}}</option>
+                                        </select>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Address Line 2</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="Address2" class="input-md"  tabindex="15">
+                                    </label>
+                                </section>
+                            </div>
+                            <div>
+
+
+                                <section>
+                                    <label class="label">Job Title</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="JobTitle" class="input-md"  tabindex="6">
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">City</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="City" class="input-md"  tabindex="16">
+                                    </label>
+                                </section>
+
+                            </div>
+
+                            <div>
+
+
+                                <section>
+                                    <label class="label">Role</label>
+                                    <label class="select">
+                                        <select ng-model="ConRole" style="width: 100%;"  tabindex="7">
+                                            <option ng-repeat="c in ConRoleData" value="{{c.ConRole}}" ng-selected="c.ConRole=='{{ConRole}}'">{{c.ConRole}}</option>
+                                        </select>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">State</label>
+                                    <label class="select">
+                                        <select ng-model="State" style="width: 100%;"  tabindex="17">
+                                            <option ng-repeat="c in Statedata" value="{{c.STATEPR}}" ng-selected="c.STATEPR=='{{State}}'">{{c.STATEPR}}</option>
+                                        </select>
+                                    </label>
+                                </section>
+
+                            </div>
+
+
+                            <div>
+                              
+                                <section>
+                                    <label class="label">Email<span class="mandatory">*</span></label>
+                                    <label class="input">
+                                        <input type="text" ng-model="email" class="input-md"  tabindex="8">
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Zip</label>
+                                    <label class="input">
+                                        <input type="text" ng-model="ZipCode" value="{{ZipCode}}"  tabindex="18">
+                                    </label>
+                                </section>
+                            </div>
+                            <div>
+
+
+                                <section>
+                                    <label class="label">Status</label>
+                                    <label class="select">
+                                        <select ng-model="Status" style="width: 100%;" disabled  tabindex="9">
+                                            <option ng-repeat="c in StatusData" value="{{c.Status}}" ng-selected="c.Status=='{{Status}}'">{{c.Status}}</option>
+                                        </select>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Country</label>
+                                    <label class="select">
+                                        <select ng-model="Country" ng-change='loadState()' style="width: 100%;"  tabindex="19"  id="upSelect">
+                                            <option ng-repeat="c in Countrydata" value="{{c.Country}}" ng-selected="c.Country=='{{Country}}'">{{c.Country}}</option>
+                                        </select>
+                                    </label>
+                                </section>
+
+                            </div>
+                            <div>
+                                <section>
+                                    <label class="label">Include on all Notifications<span class="mandatory">*</span></label>
+                                    <label class="select">
+                                        <select ng-model="includeN" style="width: 100%;"   tabindex="10"  ng-disabled="PERMLEVE1=='Regular'">
+                                            <option ng-repeat="c in includeNdata" value="{{c.includeN}}"   ng-selected="c.includeN=='{{includeN}}'">{{c.includeN}}</option>
+                                        </select>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="label">Permission Level<span class="mandatory">*</span></label>
+                                    <div class="inline-group">
+                                        <label class="radio">
+                                            <input type="radio" name="usergrp" ng-model="PERMLEVE" value="Regular" ng-checked="(PERMLEVE=='Regular')" ng-disabled="PERMLEVE1=='Regular'" />
+                                            <i></i>&nbsp;Regular User
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="usergrp" ng-model="PERMLEVE" value="Power" ng-checked="(PERMLEVE=='Power')" ng-disabled="PERMLEVE1=='Regular'" />
+                                            <i></i>&nbsp;Power User
+                                        </label>
+                                    </div>
+                                </section>
+                            </div>
+                        </fieldset>
+                       
+                    </div>
+                    <!-- end widget body-->
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

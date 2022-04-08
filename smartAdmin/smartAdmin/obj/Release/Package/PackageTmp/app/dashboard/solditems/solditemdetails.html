@@ -1,0 +1,151 @@
+﻿<div id="content">
+    <div class="row no-border" style="background: transparent;">
+        <div class="col-sm-18 col-lg-12">
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnUpdateSold()" ng-show="IsPowerUser"  id="btnSubmit">
+                <span class="btn-label ">
+                    <i class="fa fa-wrench"></i>
+                </span>Update
+            </button>
+            <button type="button" class="btn btn-labeled btn-success" ng-click="fnBack()"  id="btnCancel">
+                <span class="btn-label ">
+                    <i class="fa fa-close"></i>
+                </span>Cancel
+            </button>
+
+        </div>
+    </div>
+
+
+
+    <div class="row div-mt-13">
+        <article class="col-sm-18 col-lg-12">
+            <div jarvis-widget="" data-widget-color="blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" class="jarviswidget-color-blueDark jarviswidget" role="widget">
+                <div role="content">
+                    <!-- widget content -->
+                    <div class="widget-body smart-form padding-5">
+                        <header>
+                            <h2>Sold Item #{{soitemdet[0].ItemId}}</h2>
+                        </header>
+                        <fieldset>
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Product</label>
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].PName}}"  id="cat">
+                                    </label>
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Environment<span class="mandatory">*</span></label>
+                                        <label class="select" id="labelenviroment">
+                                            <select ng-model="soitemdet[0].Environm" ng-disabled="!IsPowerUser">
+                                                <option value=""></option>
+                                                <option ng-repeat="EnvrnDetail in EnvrnDetails track by $index" value="{{EnvrnDetail}}">{{EnvrnDetail}}</option>
+                                            </select>
+                                            <i></i>
+                                        </label>
+
+                                </section>
+
+                             
+                            </div>
+                            <div  class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Kit</label>
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].Kittype}}">
+                                    </label>
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">Sold Date</label>
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].SoldDate | date:'dd MMM yyyy'}}">
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row">
+                               
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Juris/Trans/Region</label>
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].Jurisdic}}">
+                                    </label>
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">Service Level Agreement</label>
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].Srvlevel}}">
+                                    </label>
+                                </section>
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Build/Kit #</label>
+                                    <label class="input">
+                                        <input type="text"  ng-disabled="!IsPowerUser" value="{{soitemdet[0].BuildKit}}" ng-model="soitemdet[0].BuildKit">
+                                    </label>
+                                </section>
+
+                                <section class="col col-lg-6">
+                                    <label class="label">SLA Start Date</label>
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].ExpDt | date:'dd MMM yyyy'}}">
+                                    </label>
+                                </section>
+
+                            </div>
+                            <div class="row">
+
+                                <section class="col col-lg-6">
+                                    <label class="label">DB Platform<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelsoldDB">
+                                        <select ng-disabled="!IsPowerUser" ng-model="soitemdet[0].DBPlat">
+                                            <option value=""></option>
+                                            <option ng-repeat="DBplat in DBplats" value="{{DBplat.DBPlatfm}}">{{DBplat.DBPlatfm}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+
+                                </section>
+                                <section class="col col-lg-6">
+                                    <label class="label">SLA End Date</label>
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].srvenddt | date:'dd MMM yyyy'}}">
+                                    </label>
+                                </section>
+                            </div>
+
+                            <div class="row">
+                                <section class="col col-lg-6">
+                                    <label class="label">Operating System<span class="mandatory">*</span></label>
+                                    <label class="select" id="labelsoldOpreting">
+                                        <select ng-disabled="!IsPowerUser" ng-model="soitemdet[0].OPSystem"  id="upSelect">
+                                            <option value=""></option>
+                                            <option ng-repeat="OS in OSs" value="{{OS.OperSys}}">{{OS.OperSys}}</option>
+                                        </select>
+                                        <i></i>
+                                    </label>
+                                  
+                                </section>
+
+                                <!--<section class="col col-lg-6">
+                                    <label class="label">Invoice#</label>
+
+                                    <label class="input">
+                                        <input type="text" readonly value="{{soitemdet[0].InvNum}}">
+                                    </label>
+                                </section>-->
+                            </div>
+                            
+                        </fieldset>
+                    </div>
+                    <!-- end widget body-->
+                </div>
+            </div>
+        </article>
+
+    </div>
+</div>

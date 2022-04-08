@@ -1,0 +1,176 @@
+
+<header id="header" class="animated fadeInDown ng-scope w-100" style="
+    height: 30px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 13px;
+    background-color: #17846a!important;
+    color: #fff!important;
+">
+
+<div class="d-flex" style="
+    width: 100%;
+    height: inherit;
+    vertical-align: middle;
+    background: inherit!important;
+">
+  <div class="flex-fill" style="
+    padding-top: 0.5%;
+">
+    <a class="" href="http://www.excelergy.com/#home" style="
+">Home</a>
+  </div>
+  <div class="flex-fill" style="
+    padding-top: 0.5%;
+">
+    <a class="nav-link" href="http://www.excelergy.com/#about">About</a>
+  </div>
+  <div class="flex-fill" style="
+    padding-top: 0.5%;
+">
+    <a class="nav-link" href="http://www.excelergy.com/#products">Products</a>
+  </div>
+  <div class="flex-fill" style="
+    padding-top: 0.5%;
+">
+    <a class="nav-link" href="http://www.excelergy.com/#clients">Clients</a>
+  </div>
+  <div class="flex-fill" style="
+    padding-top: 0.5%;
+">
+    <a class="nav-link" href="http://www.excelergy.com/#contact">Contact Us</a>
+  </div>
+  <div class="flex-fill" style="
+    padding-top: 0.5%;
+">
+    <a class="nav-link" href="http://support.excelergy.com/CustomerPortal/loginforcustomerportal.asp">Customer Portal</a>
+  </div>
+</div>
+</header>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm" style="z-index:9999;">
+        <div class="modal-content">
+          
+            <div class="modal-body">
+                <div class="smart-form client-form">
+                    <fieldset class="login-field" style="padding: 0px 1px 5px!important;">
+                        <section>
+                            <label class="label">E-mail</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                <input type="email" name="email" ng-model="user.email" ng-keypress="handleKeypress($event)" style="font-size: 12px;"/>
+                            </label>
+                        </section>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-green" ng-click="forgotPwd()" style="width: auto!important;padding: 0px 10px!important;">Send Mail</button>
+                    <button type="button" id="close" class="btn btn-primary btn-green" data-dismiss="modal" style="width: auto!important;padding: 0px 10px!important; background: #a90329 !important;  border: 1px solid #a90329 !important;">Close</button>
+                </div>
+            </div>
+    </div>
+</div>
+<div id="main" role="main" class="animated fadeInDown">
+    <div style="height: calc(100vh - 112px);opacity: 0.9;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <div style="margin-bottom:10px;">
+                            <div class="d-flex">
+                                <div class="flex-fill">
+                                    <div class="log_field_front" smart-include="app/shared/logo.html"></div>
+                                </div>
+                                <div class="flex-fill text-right">
+                                    <i class="fa fa-lock" style="float: right;color: #ddd;font-size: 66px;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-12">
+                                <div class="smart-form client-form">
+                                    <fieldset class="login-field" style="padding: 0px 1px 5px!important;">
+                                        <section>
+                                            <label class="label">E-mail</label>
+                                            <label class="input">
+                                                <i class="icon-append fa fa-user"></i>
+                                                <input type="email" name="email" ng-model="user.email" ng-keypress="handleKeypress($event)" style="font-size: 12px;" />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label class="label">Password</label>
+                                            <label class="input">
+                                                <i class="icon-append fa fa-lock"></i>
+                                                <input type="password" name="password" ng-model="user.password" ng-keypress="handleKeypress($event)" style="font-size: 12px;"/>
+                                            </label>
+                                        </section>
+
+                                        <section style="margin-bottom:0px;">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <label class="checkbox" style="font-size: 11px!important;">
+                                                        <input type="checkbox" name="remember" ng-model="remember" ng-checked="{{remember}}">
+                                                        <i></i>Remember Me
+                                                    </label>
+                                                </div>
+                                                <div style="padding-left: 25%;padding-top: 3px;">
+                                                    <!---->
+                                                    <label class="label" style="font-size: 11px!important; float: right;">
+                                                        <a href="javascript:void(0)" style="font-size:12px;float:right;" 
+                                                           data-toggle="modal" data-target="#myModal" ng-click="user.fgtemail='';">Forgot Password?</a>
+                                                      
+                                                    </label>
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-green" ng-disabled="submiting" ng-click="submitData()">
+                        <i class="fa fa-unlock"></i>&nbsp;
+                        Sign In
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="ng-scope" style="
+    background: #17846a!important;
+    margin: 0;
+    border-top: 1px solid #eee !important;
+    overflow: hidden;
+    height: 32px;
+    font-size: 13px;
+">
+
+<div style="
+    width: 100%;
+    height: inherit;
+    text-align: center;
+    vertical-align: middle;
+    /* background-color: #42691e!important; */
+" class="d-flex">
+
+          <div class="flex-fill"><div style="margin-top: 1.4%;"><b>Excelergy</b></div></div>
+          <div class="flex-fill"><div style="
+    margin-top: 0.9%;
+">10 E. Allen Street, Suite 201
+    Winooski, VT  05404
+</div></div>
+          <div class="flex-fill"><div style="
+    margin-top: 1.1%;
+">T: +1.781.451.1370</div></div>
+          <div class="flex-fill"><div style="
+    margin-top: 1%;
+                                            ">
+<a href="mailto:sales@excelergy.com">sales@excelergy.com</a></div></div>
+</div>
+</footer>

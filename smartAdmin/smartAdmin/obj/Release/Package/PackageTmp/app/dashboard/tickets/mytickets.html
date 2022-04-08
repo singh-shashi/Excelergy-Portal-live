@@ -1,0 +1,138 @@
+﻿<div id="wid-6" data-jarvis-widget data-widget-colorbutton="true" data-widget-editbutton="true"  ng-controller="myTicketsControl">
+    <header>
+        <span class="widget-icon"><i class="fa fa-ticket"></i></span>
+        <h2>My Tickets</h2>
+        
+        
+        <div class="widget-toolbar">
+            <div class="btn-group" data-toggle="buttons">
+                <a href="javascript:void(0);" ng-model="refreshTicket" rel="tooltip" title="" data-placement="bottom" data-original-title="Refresh" ng-click="status ='';loadMyTickets()"><i class="fa fa-refresh"></i></a>
+            </div>
+        </div>
+        
+        <div class="widget-toolbar">
+            <a href="javascript:void(0);" rel="tooltip" title="" data-placement="bottom" data-original-title="Add Ticket" ng-click="openAddTicket()">
+                <i class="fa fa-plus-square" style="font-size: 14px;color: #1ba182;"></i>
+            </a>
+        </div>
+        <div class="widget-toolbar" style="right: 12px;top: -2px;">
+            <div class="dropdown">
+                <button class="btn btn-toolbar dropdown-toggle" type="button" data-toggle="dropdown" style="background: transparent;">
+                    <span>Ticket status : {{selectedstatus}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-class="selectedstatus == 'All' ? 'active' : ''">
+                        <a href="javascript:void(0);" ng-click="status ='';loadMyTickets()">
+                            All
+                        </a>
+                    </li>
+                    <li ng-class="selectedstatus == obj ? 'active' : ''" ng-repeat="obj in allstatus ">
+                        <a href="javascript:void(0);" ng-click="loadMyTickets(obj)">
+                            {{obj}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- widget divstyle="max-height: 330px !important; overflow-x: hidden; overflow-y: auto !important"-->
+    <div class="no-padding">
+
+        <div class="widget-body no-padding scrollbar" style="max-height: 215px !important;overflow-y:hidden!important;overflow-x: hidden; ">
+            <span class="data">{{widget}}</span>
+            <!-- content goes here -->
+            <div class="widget-body-toolbar">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input class="form-control ng-pristine ng-invalid ng-invalid-required ng-touched" type="search" ng-model="searchtext" required="" placeholder="Search..." style="" ng-keypress="handleKeypress($event)">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default btn-primary"  type="button" ng-click="loadMyTickets()">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-align-right">
+                        <button type="button" ng-disabled="!showPrevious" ng-class="!showPrevious ? 'btn btn-labeled btn-success btn_prev disabled' : 'btn btn-labeled btn-success btn_prev'" ng-click="pagechange(-1)">
+                            <span class="btn-label">
+                                <i class="fa fa-caret-left"></i>
+                            </span>
+
+                        </button>
+                        <button type="button" ng-disabled="!showNext" ng-class="!showNext ? 'btn btn-labeled btn-success btn_nxt disabled' : 'btn btn-labeled btn-success btn_nxt'" ng-click="pagechange(1)" >
+
+                            <span class="label-right">
+                                <i class="fa fa-caret-right"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive div-h80om0 scrollbar" id="style-1" >
+                <table class="table table-striped table-borderless table-hover ng-isolate-scope dataTable no-footer" role="grid">
+                    <thead>
+                        <tr>
+                            <th style="white-space: nowrap;cursor:pointer; width:11.5%;" ng-click="orderByField='TicketID'; reverseSort = !reverseSort;loadMyTickets()">
+                                <div>Ticket&nbsp;#</div>
+                                <span ng-show="orderByField == 'TicketID'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                            <th style="cursor:pointer; width:12.5%; padding-left: 3px!important;" ng-click="orderByField='Status'; reverseSort = !reverseSort;loadMyTickets()">
+                                <div>Status</div>
+                                <span ng-show="orderByField == 'Status'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                            <th style="cursor:pointer; width:12.5%; padding-left: 3px!important;" ng-click="orderByField='Product'; reverseSort = !reverseSort;loadMyTickets()">
+                                <div>Product</div>
+                                <span ng-show="orderByField == 'Product'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                            <th style="cursor:pointer; width:10.5%;padding-left:2px!important" ng-click="orderByField='Kittype'; reverseSort = !reverseSort;loadMyTickets()">
+                                <div>Build&nbsp;#</div>
+                                <span ng-show="orderByField == 'Kittype'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                            <th style="cursor:pointer; width:11.5%; padding-left: 3px!important;" ng-click="orderByField='Priority'; reverseSort = !reverseSort;loadMyTickets()">
+                                <div>Priority</div>
+                                <span ng-show="orderByField == 'Priority'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                            <th style="cursor:pointer; width:12.5%;" ng-click="orderByField='Synopsis'; reverseSort = !reverseSort;loadMyTickets()">
+                                <div>Synopsis</div>
+                                <span ng-show="orderByField == 'Synopsis'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                            <th style="cursor:pointer; width:12.5%;" ng-click="orderByField='EndUser'; reverseSort = !reverseSort;loadMyTickets()">
+                                <div>Creator</div>
+                                <span ng-show="orderByField == 'EndUser'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                            <th  style="cursor:pointer; width:15.5%;" ng-click="orderByField='CallTime'; reverseSort = !reverseSort;loadMyTickets()">
+                            <div>Opened</div>
+                                <span ng-show="orderByField == 'CallTime'"><span ng-show="!reverseSort"><i class="fa fa-caret-up"></i></span><span ng-show="reverseSort"><i class="fa fa-caret-down"></i></span></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="mytickelement in filteredMyTickets">
+                            <td><a class="url" href="javascript:void(0);" ng-click="fnShowDetail(mytickelement.TicketID)"><span>{{mytickelement.TicketID}}</span></a></td>
+                            <td class="flex-nowrap"  style="padding-left:3px!important">{{mytickelement.Status}}</td>
+                            <td class="flex-nowrap"  style="padding-left:2px!important">{{mytickelement.Product}}</td>
+                            <td class="flex-nowrap" style="padding-left:2px!important">{{mytickelement.Build}}</td>
+                            <td class="flex-nowrap"  style="padding-left:2px!important">{{mytickelement.Priority}}</td>
+                            <td class="flex-nowrap">{{mytickelement.Synopsis}}</td>
+                            <td class="flex-nowrap">{{mytickelement.EndUser}}</td>
+                            <td class="flex-nowrap">{{mytickelement.CallTime | date:'dd MMM yyyy hh:mm:ss'}}</td>
+                        </tr>
+                        <tr ng-hide="filteredMyTickets.length > 0 ">
+                            <td colspan="8">
+                                <span style="font-size:11px"> No data to display.</span> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end content -->
+        </div>
+
+    </div>
+
+    <!-- end widget div -->
+</div>
+

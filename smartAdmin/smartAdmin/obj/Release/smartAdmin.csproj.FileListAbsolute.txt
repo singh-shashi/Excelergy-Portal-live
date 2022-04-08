@@ -1,0 +1,6 @@
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.dll.config
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.dll
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\bin\smartAdmin.pdb
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\obj\Release\smartAdmin.csproj.CoreCompileInputs.cache
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\obj\Release\smartAdmin.dll
+D:\GitHub Project\Nexant-Portal\smartAdmin\smartAdmin\obj\Release\smartAdmin.pdb
